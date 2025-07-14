@@ -3,7 +3,7 @@ body {
     font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centra los elementos hijos horizontalmente */
     justify-content: flex-start;
     min-height: 100vh;
     margin: 0;
@@ -15,7 +15,7 @@ body {
 /* Header Image */
 body > img {
     display: block;
-    margin: 30px auto 20px auto; /* More space above and below */
+    margin: 30px auto 20px auto; /* Centered horizontally */
     max-width: 250px; /* Slightly larger image */
     height: auto;
     border-radius: 8px; /* Slightly rounded corners for the image */
@@ -70,8 +70,10 @@ main {
     padding: 30px; /* More padding */
     border-radius: 12px; /* More rounded corners */
     box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Enhanced shadow */
-    margin-top: 30px; /* Space from nav */
-    margin-bottom: 30px; /* Space at the bottom */
+    margin: 30px auto; /* Centered horizontally */
+    display: flex; /* Make main a flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally within main */
 }
 
 /* Headings */
@@ -79,31 +81,36 @@ h1 {
     color: #2c3e50; /* Dark blue for headings */
     margin-top: 30px;
     margin-bottom: 25px; /* More space below headings */
-    text-align: center;
+    text-align: center; /* Centers text within h1 */
     font-size: 2.2em; /* Larger headings */
     font-weight: 700;
     letter-spacing: 0.5px;
+    width: 90%; /* Set a specific width */
+    max-width: 1100px; /* Match iframe max-width */
+    margin: 0 auto; /* Centered horizontally */
+    box-sizing: border-box; /* Include padding in width */
 }
 
 /* Column List (for initial info) */
 .column-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 40px; /* More space below */
-    width: 100%; /* Full width within main */
+    margin: 0 auto 40px auto; /* Centered horizontally */
+    width: 90%; /* Adjusted width to prevent overflow */
+    max-width: 1200px;
     background-color: #fdfdfd; /* Slightly off-white background */
     padding: 25px; /* More padding */
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Lighter shadow */
+    box-sizing: border-box; /* Include padding in width */
 }
 
 .column-list ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto; /* Center the ul within column-list */
     columns: 3;
     column-gap: 50px; /* More space between columns */
+    max-width: 100%; /* Ensure ul doesn't exceed parent width */
+    box-sizing: border-box; /* Include padding in width */
 }
 
 .column-list li {
@@ -114,41 +121,43 @@ h1 {
 
 /* Iframes (Charts) */
 iframe {
-    width: 100%; /* Full width within main */
-    max-width: 1100px; /* Adjusted max-width */
-    height: 650px; /* Slightly taller iframes */
-    border: 1px solid #c0d0e0; /* Softer border color */
-    border-radius: 10px; /* Rounded corners for iframes */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Enhanced shadow */
-    margin-bottom: 40px; /* More space between charts */
-    background-color: #ffffff; /* Ensure white background */
+    width: 90%; /* Set a specific width */
+    max-width: 1100px;
+    height: 650px;
+    border: 1px solid #c0d0e0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 0 auto 40px auto; /* Centered horizontally with margin below */
+    background-color: #ffffff;
+    box-sizing: border-box; /* Include padding in width */
 }
 
 /* Specific Info Box (Ciervos Furtivos) */
-div[style*="font-family: sans-serif;"] {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important; /* Ensure consistent font */
-    margin: 30px auto; /* Centered with more margin */
-    padding: 25px; /* More padding */
-    background-color: #f8f9fa; /* Lighter background */
+.info-box {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 30px auto; /* Centered horizontally */
+    padding: 25px;
+    background-color: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    max-width: 800px; /* Constrain width */
-    text-align: center; /* Center text */
+    max-width: 800px;
+    text-align: center;
+    box-sizing: border-box; /* Include padding in width */
 }
 
-div[style*="font-family: sans-serif;"] h2 {
-    color: #2c3e50; /* Consistent heading color */
+.info-box h2 {
+    color: #2c3e50;
     margin-bottom: 15px;
     font-size: 1.8em;
 }
 
-div[style*="font-family: sans-serif;"] ul {
+.info-box ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-div[style*="font-family: sans-serif;"] li {
+.info-box li {
     margin-bottom: 8px;
     color: #444;
     font-size: 1.1em;
