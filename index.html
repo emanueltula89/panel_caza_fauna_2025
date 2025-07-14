@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Establecimientos</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Alinea al inicio para dejar espacio arriba */
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding-top: 20px; /* Espacio superior */
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .column-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+            width: 90%; /* Aumentar el ancho para mejor visualización */
+            max-width: 1200px; /* Limitar el ancho máximo */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .column-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            columns: 3; /* Mostrar en 3 columnas para mejor legibilidad */
+            column-gap: 40px; /* Espacio entre columnas */
+        }
+        .column-list li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        iframe {
+            width: 90%; /* Ancho de los iframes */
+            max-width: 1000px; /* Ancho máximo */
+            height: 600px; /* Altura para los gráficos */
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px; /* Espacio entre gráficos */
+        }
+    </style>
+</head>
+<body>
+    <h1>Análisis de Datos Establecimiento de Caza de Neuquén. Temporada 2025.</h1>
+    <div class="column-list">
+        <ul>
+            <li>Nombre del establecimiento</li>
+            <li>Ubicación del ACM</li>
+            <li>Departamento donde se ubica el establecimiento</li>
+            <li>Su establecimiento está inscripto y habilitado como criadero de fauna silvestre</li>
+            <li>Marque el casillero de la especies para las que solicita la práctica de caza. mayor. Estas especies son exclusivamente para caza en establecimientos debidamente inscriptos como Criaderos de Fauna Silvestre y habilitados como Áreas de Caza Mayor.</li>
+            <li>En los últimos cinco años, el número de ciervos en su campo</li>
+            <li>De las superficies total del establecimiento, qué porcentaje estima Ud. Que es utilizado por los ciervos</li>
+            <li>Dentro de su campo o realiza algún tipo de manejo o aprovechamiento de los ciervos colorados.</li>
+            <li>Indique si es de su interés mejorar la práctica de alguna de las modalidades anteriores? Cual / Cuales?</li>
+            <li>Con respecto a la proporción existente entre machos y hembras, podría indicar los porcentajes que observa de Machos y Hembras.</li>
+            <li>Machos 20%</li>
+            <li>En cuanto a los ambientes que ocupan de manera preferencial los ciervos, seleccione los ambientes donde se encuentran presentes.</li>
+            <li>Podría estimar el número de ciervos que son extraídos de su establecimiento todos los años, por los cazadores furtivos?</li>
+            <li>Indique en forma aproximada, la cantidad de ejemplares de jabalí europeo que alberga su establecimiento.</li>
+            <li>En los últimos tres años, la población de jabalí europeo:</li>
+            <li>Si es posible, indique en forma aproximada, la cantidad de pumas que alberga su establecimiento.</li>
+            <li>En los últimos tres años, la población de pumas</li>
+            <li>Si detectó daños provocados por puma durante el último año, cuantifique los mismos (tipo y cantidad de hacienda afectada):</li>
+            <li>En su establecimiento viven poblaciones de guanacos?</li>
+            <li>En los últimos 3 años, la población de guanacos</li>
+            <li>Que cantidad de ejemplares de esta especie estima Ud. que alberga su establecimiento?</li>
+            <li>Si bien la caza deportiva del guanaco no se encuentra habilitada, se pueden considerar casos especiales para la evaluación técnica de un eventual aprovechamiento de la especie en cierto...</li>
+        </ul>
+    </div>
+
+    <h1>Gráfico de Establecimientos por Departamento</h1>
+    <iframe src="establecimientos_por_departamento.html"></iframe>
+
+    <h1>Gráfico de Distribución de Especies de Caza Solicitadas</h1>
+    <iframe src="especies_caza_torta.html"></iframe>
+
+    <h1>Cambio en el Número de Ciervos en los Últimos Cinco Años</h1>
+    <iframe src="ciervos_ultimos_cinco_anos_torta.html"></iframe>
+
+    <h1>Proporción de Machos y Hembras Observada de Ciervos</h1>
+    <iframe src="proporcion_machos_hembras.html"></iframe>
+
+    <h1>Ambientes Preferenciales de Ciervos</h1>
+    <iframe src="ambientes_preferenciales_ciervos.html"></iframe>
+
+    <h1>Estimación de Ciervos Extraídos por Cazadores Furtivos</h1>
+    <iframe src="ciervos_furtivos_bar.html"></iframe>
+
+    <div style="font-family: sans-serif; margin: 20px; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #333; text-align: center;">Establecimientos con Estimaciones Específicas de Ciervos Furtivos</h2>
+        <ul>
+            <li><b>Estimación de 80 ciervos:</b> Estancias Los Peucos y Los Ranchos</li>
+            <li><b>Estimación de 60 ciervos:</b> Palitue</li>
+            <li><b>Estimación de 40 ciervos:</b> Estancia Toki Eder</li>
+            <li><b>Estimación de 30 ciervos:</b> ESTANCIA LA RINCONADA, Sihuen - CINAG SA</li>
+        </ul>
+    </div>
+
+    <h1>Cantidad de Ejemplares de Jabalí Europeo</h1>
+    <iframe src="jabali_europeo_torta.html"></iframe>
+
+    <h1>Cambio en la Población de Jabalí Europeo en los Últimos 3 Años</h1>
+    <iframe src="jabali_poblacion_3_anos_torta.html"></iframe>
+
+</body>
+</html>
