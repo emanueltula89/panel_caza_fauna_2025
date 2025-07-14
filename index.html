@@ -4,163 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de Establecimientos</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-            padding-top: 0; /* Eliminar padding-top del body */
-        }
-        nav {
-            width: 100%;
-            background-color: #333;
-            padding: 10px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 0;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #007bff;
-        }
-        h1 {
-            color: #333;
-            margin-top: 30px; /* Añadir margen superior para compensar el nav */
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .column-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 30px;
-            width: 90%;
-            max-width: 1200px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .column-list ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            columns: 3;
-            column-gap: 40px;
-        }
-        .column-list li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-        iframe {
-            width: 90%;
-            max-width: 1000px;
-            height: 600px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <img src="../ff-ca5e23e03ee93a2923d20aadd21b9d89-ff-Guardafauna-1-removebg-preview.png" alt="Guardafauna Logo" style="display: block; margin: 20px auto; max-width: 200px; height: auto;">
     <nav>
         <ul>
-            <li><a href="#top">Inicio</a></li>
-            <li><a href="#establecimientos-departamento">Establecimientos por Departamento</a></li>
-            <li><a href="#especies-caza">Especies de Caza Solicitadas</a></li>
-            <li><a href="#ciervos-cinco-anos">Ciervos Últimos Cinco Años</a></li>
-            <li><a href="#proporcion-ciervos">Proporción Machos/Hembras Ciervos</a></li>
-            <li><a href="#ambientes-ciervos">Ambientes Preferenciales Ciervos</a></li>
-            <li><a href="#ciervos-furtivos">Ciervos Furtivos</a></li>
-            <li><a href="#jabali-europeo">Jabalí Europeo</a></li>
-            <li><a href="#poblacion-jabali">Población Jabalí Europeo (3 Años)</a></li>
+            <li><a href="#" onclick="showSection('inscripciones-establecimiento'); return false;">Inscripciones de Establecimiento</a></li>
+            <li><a href="#" onclick="showSection('permiso-caza'); return false;">Permiso de Caza</a></li>
         </ul>
     </nav>
-    <h1 id="top">Análisis de Datos Establecimiento de Caza de Neuquén. Temporada 2025.</h1>
-    <div class="column-list">
-        <ul>
-            <li>Nombre del establecimiento</li>
-            <li>Ubicación del ACM</li>
-            <li>Departamento donde se ubica el establecimiento</li>
-            <li>Su establecimiento está inscripto y habilitado como criadero de fauna silvestre</li>
-            <li>Marque el casillero de la especies para las que solicita la práctica de caza. mayor. Estas especies son exclusivamente para caza en establecimientos debidamente inscriptos como Criaderos de Fauna Silvestre y habilitados como Áreas de Caza Mayor.</li>
-            <li>En los últimos cinco años, el número de ciervos en su campo</li>
-            <li>De las superficies total del establecimiento, qué porcentaje estima Ud. Que es utilizado por los ciervos</li>
-            <li>Dentro de su campo o realiza algún tipo de manejo o aprovechamiento de los ciervos colorados.</li>
-            <li>Indique si es de su interés mejorar la práctica de alguna de las modalidades anteriores? Cual / Cuales?</li>
-            <li>Con respecto a la proporción existente entre machos y hembras, podría indicar los porcentajes que observa de Machos y Hembras.</li>
-            <li>Machos 20%</li>
-            <li>En cuanto a los ambientes que ocupan de manera preferencial los ciervos, seleccione los ambientes donde se encuentran presentes.</li>
-            <li>Podría estimar el número de ciervos que son extraídos de su establecimiento todos los años, por los cazadores furtivos?</li>
-            <li>Indique en forma aproximada, la cantidad de ejemplares de jabalí europeo que alberga su establecimiento.</li>
-            <li>En los últimos tres años, la población de jabalí europeo:</li>
-            <li>Si es posible, indique en forma aproximada, la cantidad de pumas que alberga su establecimiento.</li>
-            <li>En los últimos tres años, la población de pumas</li>
-            <li>Si detectó daños provocados por puma durante el último año, cuantifique los mismos (tipo y cantidad de hacienda afectada):</li>
-            <li>En su establecimiento viven poblaciones de guanacos?</li>
-            <li>En los últimos 3 años, la población de guanacos</li>
-            <li>Que cantidad de ejemplares de esta especie estima Ud. que alberga su establecimiento?</li>
-            <li>Si bien la caza deportiva del guanaco no se encuentra habilitada, se pueden considerar casos especiales para la evaluación técnica de un eventual aprovechamiento de la especie en cierto...</li>
-        </ul>
-    </div>
 
-    <h1 id="establecimientos-departamento">Gráfico de Establecimientos por Departamento</h1>
-    <iframe src="establecimientos_por_departamento.html"></iframe>
+    <main id="inscripciones-establecimiento">
+        <h1 id="top">Análisis de Datos Establecimiento de Caza de Neuquén. Temporada 2025.</h1>
+        <div class="column-list">
+            <ul>
+                <li>Nombre del establecimiento</li>
+                <li>Ubicación del ACM</li>
+                <li>Departamento donde se ubica el establecimiento</li>
+                <li>Su establecimiento está inscripto y habilitado como criadero de fauna silvestre</li>
+                <li>Marque el casillero de la especies para las que solicita la práctica de caza. mayor. Estas especies son exclusivamente para caza en establecimientos debidamente inscriptos como Criaderos de Fauna Silvestre y habilitados como Áreas de Caza Mayor.</li>
+                <li>En los últimos cinco años, el número de ciervos en su campo</li>
+                <li>De las superficies total del establecimiento, qué porcentaje estima Ud. Que es utilizado por los ciervos</li>
+                <li>Dentro de su campo o realiza algún tipo de manejo o aprovechamiento de los ciervos colorados.</li>
+                <li>Indique si es de su interés mejorar la práctica de alguna de las modalidades anteriores? Cual / Cuales?</li>
+                <li>Con respecto a la proporción existente entre machos y hembras, podría indicar los porcentajes que observa de Machos y Hembras.</li>
+                <li>Machos 20%</li>
+                <li>En cuanto a los ambientes que ocupan de manera preferencial los ciervos, seleccione los ambientes donde se encuentran presentes.</li>
+                <li>Podría estimar el número de ciervos que son extraídos de su establecimiento todos los años, por los cazadores furtivos?</li>
+                <li>Indique en forma aproximada, la cantidad de ejemplares de jabalí europeo que alberga su establecimiento.</li>
+                <li>En los últimos tres años, la población de jabalí europeo:</li>
+                <li>Si es posible, indique en forma aproximada, la cantidad de pumas que alberga su establecimiento.</li>
+                <li>En los últimos tres años, la población de pumas</li>
+                <li>Si detectó daños provocados por puma durante el último año, cuantifique los mismos (tipo y cantidad de hacienda afectada):</li>
+                <li>En su establecimiento viven poblaciones de guanacos?</li>
+                <li>En los últimos 3 años, la población de guanacos</li>
+                <li>Que cantidad de ejemplares de esta especie estima Ud. que alberga su establecimiento?</li>
+                <li>Si bien la caza deportiva del guanaco no se encuentra habilitada, se pueden considerar casos especiales para la evaluación técnica de un eventual aprovechamiento de la especie en cierto...</li>
+            </ul>
+        </div>
 
-    <h1 id="especies-caza">Gráfico de Distribución de Especies de Caza Solicitadas</h1>
-    <iframe src="especies_caza_torta.html"></iframe>
+        <h1 id="establecimientos-departamento">Gráfico de Establecimientos por Departamento</h1>
+        <iframe src="establecimientos_por_departamento.html"></iframe>
 
-    <h1 id="ciervos-cinco-anos">Cambio en el Número de Ciervos en los Últimos Cinco Años</h1>
-    <iframe src="ciervos_ultimos_cinco_anos_torta.html"></iframe>
+        <h1 id="especies-caza">Gráfico de Distribución de Especies de Caza Solicitadas</h1>
+        <iframe src="especies_caza_torta.html"></iframe>
 
-    <h1 id="proporcion-ciervos">Proporción de Machos y Hembras Observada de Ciervos</h1>
-    <iframe src="proporcion_machos_hembras.html"></iframe>
+        <h1 id="ciervos-cinco-anos">Cambio en el Número de Ciervos en los Últimos Cinco Años</h1>
+        <iframe src="ciervos_ultimos_cinco_anos_torta.html"></iframe>
 
-    <h1 id="ambientes-ciervos">Ambientes Preferenciales de Ciervos</h1>
-    <iframe src="ambientes_preferenciales_ciervos.html"></iframe>
+        <h1 id="proporcion-ciervos">Proporción de Machos y Hembras Observada de Ciervos</h1>
+        <iframe src="proporcion_machos_hembras.html"></iframe>
 
-    <h1 id="ciervos-furtivos">Estimación de Ciervos Extraídos por Cazadores Furtivos</h1>
-    <iframe src="ciervos_furtivos_bar.html"></iframe>
+        <h1 id="ambientes-ciervos">Ambientes Preferenciales de Ciervos</h1>
+        <iframe src="ambientes_preferenciales_ciervos.html"></iframe>
 
-    <div style="font-family: sans-serif; margin: 20px; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <h2 style="color: #333; text-align: center;">Establecimientos con Estimaciones Específicas de Ciervos Furtivos</h2>
-        <ul>
-            <li><b>Estimación de 80 ciervos:</b> Estancias Los Peucos y Los Ranchos</li>
-            <li><b>Estimación de 60 ciervos:</b> Palitue</li>
-            <li><b>Estimación de 40 ciervos:</b> Estancia Toki Eder</li>
-            <li><b>Estimación de 30 ciervos:</b> ESTANCIA LA RINCONADA, Sihuen - CINAG SA</li>
-        </ul>
-    </div>
+        <h1 id="ciervos-furtivos">Estimación de Ciervos Extraídos por Cazadores Furtivos</h1>
+        <iframe src="ciervos_furtivos_bar.html"></iframe>
 
-    <h1 id="jabali-europeo">Cantidad de Ejemplares de Jabalí Europeo</h1>
-    <iframe src="jabali_europeo_torta.html"></iframe>
+        <div style="font-family: sans-serif; margin: 20px; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h2 style="color: #333; text-align: center;">Establecimientos con Estimaciones Específicas de Ciervos Furtivos</h2>
+            <ul>
+                <li><b>Estimación de 80 ciervos:</b> Estancias Los Peucos y Los Ranchos</li>
+                <li><b>Estimación de 60 ciervos:</b> Palitue</li>
+                <li><b>Estimación de 40 ciervos:</b> Estancia Toki Eder</li>
+                <li><b>Estimación de 30 ciervos:</b> ESTANCIA LA RINCONADA, Sihuen - CINAG SA</li>
+            </ul>
+        </div>
 
-    <h1 id="poblacion-jabali">Cambio en la Población de Jabalí Europeo en los Últimos 3 Años</h1>
-    <iframe src="jabali_poblacion_3_anos_torta.html"></iframe>
+        <h1 id="jabali-europeo">Cantidad de Ejemplares de Jabalí Europeo</h1>
+        <iframe src="jabali_europeo_torta.html"></iframe>
+
+        <h1 id="poblacion-jabali">Cambio en la Población de Jabalí Europeo en los Últimos 3 Años</h1>
+        <iframe src="jabali_poblacion_3_anos_torta.html"></iframe>
+    </main>
+
+    <main id="permiso-caza" style="display: none;">
+        <h1>Permiso de Caza</h1>
+        <p>Aquí irá la información relacionada con los permisos de caza.</p>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Oculta todas las secciones main
+            document.querySelectorAll('main').forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Muestra la sección deseada
+            document.getElementById(sectionId).style.display = 'block';
+
+            // Desplázate a la parte superior de la página o a la sección
+            if (sectionId === 'inscripciones-establecimiento') {
+                window.scrollTo(0, 0); // Desplázate al inicio de la página
+            } else {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Asegúrate de que la sección de inscripciones esté visible al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('inscripciones-establecimiento');
+        });
+    </script>
 
 </body>
 </html>
