@@ -10,14 +10,46 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Alinea al inicio para dejar espacio arriba */
+            justify-content: flex-start;
             min-height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
-            padding-top: 20px; /* Espacio superior */
+            padding-top: 0; /* Eliminar padding-top del body */
+        }
+        nav {
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #007bff;
         }
         h1 {
             color: #333;
+            margin-top: 30px; /* Añadir margen superior para compensar el nav */
             margin-bottom: 20px;
             text-align: center;
         }
@@ -26,8 +58,8 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 30px;
-            width: 90%; /* Aumentar el ancho para mejor visualización */
-            max-width: 1200px; /* Limitar el ancho máximo */
+            width: 90%;
+            max-width: 1200px;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -37,25 +69,38 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            columns: 3; /* Mostrar en 3 columnas para mejor legibilidad */
-            column-gap: 40px; /* Espacio entre columnas */
+            columns: 3;
+            column-gap: 40px;
         }
         .column-list li {
             margin-bottom: 8px;
             color: #555;
         }
         iframe {
-            width: 90%; /* Ancho de los iframes */
-            max-width: 1000px; /* Ancho máximo */
-            height: 600px; /* Altura para los gráficos */
+            width: 90%;
+            max-width: 1000px;
+            height: 600px;
             border: 1px solid #ddd;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 30px; /* Espacio entre gráficos */
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>Análisis de Datos Establecimiento de Caza de Neuquén. Temporada 2025.</h1>
+    <nav>
+        <ul>
+            <li><a href="#top">Inicio</a></li>
+            <li><a href="#establecimientos-departamento">Establecimientos por Departamento</a></li>
+            <li><a href="#especies-caza">Especies de Caza Solicitadas</a></li>
+            <li><a href="#ciervos-cinco-anos">Ciervos Últimos Cinco Años</a></li>
+            <li><a href="#proporcion-ciervos">Proporción Machos/Hembras Ciervos</a></li>
+            <li><a href="#ambientes-ciervos">Ambientes Preferenciales Ciervos</a></li>
+            <li><a href="#ciervos-furtivos">Ciervos Furtivos</a></li>
+            <li><a href="#jabali-europeo">Jabalí Europeo</a></li>
+            <li><a href="#poblacion-jabali">Población Jabalí Europeo (3 Años)</a></li>
+        </ul>
+    </nav>
+    <h1 id="top">Análisis de Datos Establecimiento de Caza de Neuquén. Temporada 2025.</h1>
     <div class="column-list">
         <ul>
             <li>Nombre del establecimiento</li>
@@ -83,22 +128,22 @@
         </ul>
     </div>
 
-    <h1>Gráfico de Establecimientos por Departamento</h1>
+    <h1 id="establecimientos-departamento">Gráfico de Establecimientos por Departamento</h1>
     <iframe src="establecimientos_por_departamento.html"></iframe>
 
-    <h1>Gráfico de Distribución de Especies de Caza Solicitadas</h1>
+    <h1 id="especies-caza">Gráfico de Distribución de Especies de Caza Solicitadas</h1>
     <iframe src="especies_caza_torta.html"></iframe>
 
-    <h1>Cambio en el Número de Ciervos en los Últimos Cinco Años</h1>
+    <h1 id="ciervos-cinco-anos">Cambio en el Número de Ciervos en los Últimos Cinco Años</h1>
     <iframe src="ciervos_ultimos_cinco_anos_torta.html"></iframe>
 
-    <h1>Proporción de Machos y Hembras Observada de Ciervos</h1>
+    <h1 id="proporcion-ciervos">Proporción de Machos y Hembras Observada de Ciervos</h1>
     <iframe src="proporcion_machos_hembras.html"></iframe>
 
-    <h1>Ambientes Preferenciales de Ciervos</h1>
+    <h1 id="ambientes-ciervos">Ambientes Preferenciales de Ciervos</h1>
     <iframe src="ambientes_preferenciales_ciervos.html"></iframe>
 
-    <h1>Estimación de Ciervos Extraídos por Cazadores Furtivos</h1>
+    <h1 id="ciervos-furtivos">Estimación de Ciervos Extraídos por Cazadores Furtivos</h1>
     <iframe src="ciervos_furtivos_bar.html"></iframe>
 
     <div style="font-family: sans-serif; margin: 20px; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -111,10 +156,10 @@
         </ul>
     </div>
 
-    <h1>Cantidad de Ejemplares de Jabalí Europeo</h1>
+    <h1 id="jabali-europeo">Cantidad de Ejemplares de Jabalí Europeo</h1>
     <iframe src="jabali_europeo_torta.html"></iframe>
 
-    <h1>Cambio en la Población de Jabalí Europeo en los Últimos 3 Años</h1>
+    <h1 id="poblacion-jabali">Cambio en la Población de Jabalí Europeo en los Últimos 3 Años</h1>
     <iframe src="jabali_poblacion_3_anos_torta.html"></iframe>
 
 </body>
